@@ -14,7 +14,7 @@ abstract class MultiData
   String get question;
 
   @nullable
-  BuiltList<String> get images;
+  BuiltList<String> get specials;
 
   @nullable
   BuiltList<String> get choices;

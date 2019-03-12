@@ -32,10 +32,10 @@ class _$MultiDataSerializer implements StructuredSerializer<MultiData> {
         ..add(serializers.serialize(object.question,
             specifiedType: const FullType(String)));
     }
-    if (object.images != null) {
+    if (object.specials != null) {
       result
-        ..add('images')
-        ..add(serializers.serialize(object.images,
+        ..add('specials')
+        ..add(serializers.serialize(object.specials,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(String)])));
     }
@@ -69,8 +69,8 @@ class _$MultiDataSerializer implements StructuredSerializer<MultiData> {
           result.question = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'images':
-          result.images.replace(serializers.deserialize(value,
+        case 'specials':
+          result.specials.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
@@ -100,7 +100,7 @@ class _$MultiData extends MultiData {
   @override
   final String question;
   @override
-  final BuiltList<String> images;
+  final BuiltList<String> specials;
   @override
   final BuiltList<String> choices;
   @override
@@ -110,7 +110,7 @@ class _$MultiData extends MultiData {
       (new MultiDataBuilder()..update(updates)).build();
 
   _$MultiData._(
-      {this.gameId, this.question, this.images, this.choices, this.answers})
+      {this.gameId, this.question, this.specials, this.choices, this.answers})
       : super._() {
     if (gameId == null) {
       throw new BuiltValueNullFieldError('MultiData', 'gameId');
@@ -133,7 +133,7 @@ class _$MultiData extends MultiData {
     return other is MultiData &&
         gameId == other.gameId &&
         question == other.question &&
-        images == other.images &&
+        specials == other.specials &&
         choices == other.choices &&
         answers == other.answers;
   }
@@ -143,7 +143,7 @@ class _$MultiData extends MultiData {
     return $jf($jc(
         $jc(
             $jc($jc($jc(0, gameId.hashCode), question.hashCode),
-                images.hashCode),
+                specials.hashCode),
             choices.hashCode),
         answers.hashCode));
   }
@@ -153,7 +153,7 @@ class _$MultiData extends MultiData {
     return (newBuiltValueToStringHelper('MultiData')
           ..add('gameId', gameId)
           ..add('question', question)
-          ..add('images', images)
+          ..add('specials', specials)
           ..add('choices', choices)
           ..add('answers', answers))
         .toString();
@@ -172,10 +172,10 @@ class MultiDataBuilder
   String get question => _$this._question;
   set question(String question) => _$this._question = question;
 
-  ListBuilder<String> _images;
-  ListBuilder<String> get images =>
-      _$this._images ??= new ListBuilder<String>();
-  set images(ListBuilder<String> images) => _$this._images = images;
+  ListBuilder<String> _specials;
+  ListBuilder<String> get specials =>
+      _$this._specials ??= new ListBuilder<String>();
+  set specials(ListBuilder<String> specials) => _$this._specials = specials;
 
   ListBuilder<String> _choices;
   ListBuilder<String> get choices =>
@@ -193,7 +193,7 @@ class MultiDataBuilder
     if (_$v != null) {
       _gameId = _$v.gameId;
       _question = _$v.question;
-      _images = _$v.images?.toBuilder();
+      _specials = _$v.specials?.toBuilder();
       _choices = _$v.choices?.toBuilder();
       _answers = _$v.answers?.toBuilder();
       _$v = null;
@@ -222,14 +222,14 @@ class MultiDataBuilder
           new _$MultiData._(
               gameId: gameId,
               question: question,
-              images: _images?.build(),
+              specials: _specials?.build(),
               choices: _choices?.build(),
               answers: answers.build());
     } catch (_) {
       String _$failedField;
       try {
-        _$failedField = 'images';
-        _images?.build();
+        _$failedField = 'specials';
+        _specials?.build();
         _$failedField = 'choices';
         _choices?.build();
         _$failedField = 'answers';

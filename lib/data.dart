@@ -5,6 +5,7 @@ export 'models/class_join.dart';
 export 'models/class_session.dart';
 export 'models/class_students.dart';
 export 'models/contest_join.dart';
+export 'models/contest_session.dart';
 export 'models/contest_start.dart';
 export 'models/crossword_data.dart';
 export 'models/game_config.dart';
