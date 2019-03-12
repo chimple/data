@@ -14,14 +14,24 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(ContestJoin.serializer)
       ..add(ContestSession.serializer)
       ..add(ContestStart.serializer)
+      ..add(GameConfig.serializer)
       ..add(GameStatus.serializer)
       ..add(MultipleChoiceData.serializer)
+      ..add(Page.serializer)
       ..add(Score.serializer)
+      ..add(Stories.serializer)
+      ..add(StoryConfig.serializer)
       ..add(Student.serializer)
       ..add(UserProfile.serializer)
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(GameData)]),
           () => new ListBuilder<GameData>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(Page)]),
+          () => new ListBuilder<Page>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(StoryConfig)]),
+          () => new ListBuilder<StoryConfig>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
           () => new ListBuilder<String>())
