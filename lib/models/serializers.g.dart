@@ -14,9 +14,13 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(ContestJoin.serializer)
       ..add(ContestSession.serializer)
       ..add(ContestStart.serializer)
+      ..add(CrosswordData.serializer)
       ..add(GameConfig.serializer)
       ..add(GameStatus.serializer)
-      ..add(MultipleChoiceData.serializer)
+      ..add(ImageData.serializer)
+      ..add(MathOpData.serializer)
+      ..add(MultiData.serializer)
+      ..add(NumMultiData.serializer)
       ..add(Page.serializer)
       ..add(Performance.serializer)
       ..add(Score.serializer)
@@ -28,6 +32,14 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList, const [const FullType(GameData)]),
           () => new ListBuilder<GameData>())
       ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(ImageData)]),
+          () => new ListBuilder<ImageData>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(BuiltList, const [const FullType(String)])
+          ]),
+          () => new ListBuilder<BuiltList<String>>())
+      ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Page)]),
           () => new ListBuilder<Page>())
       ..addBuilderFactory(
@@ -37,8 +49,23 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList, const [const FullType(String)]),
           () => new ListBuilder<String>())
       ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
+      ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Student)]),
           () => new ListBuilder<Student>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(int)]),
+          () => new ListBuilder<int>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(int)]),
+          () => new ListBuilder<int>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(int)]),
+          () => new ListBuilder<int>())
       ..addBuilderFactory(
           const FullType(BuiltMap,
               const [const FullType(String), const FullType(GameStatus)]),

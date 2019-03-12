@@ -1,7 +1,9 @@
 import 'dart:convert';
 
-import 'package:data/models/multiple_choice_data.dart';
+import 'package:built_collection/built_collection.dart';
+import 'package:data/models/multi_data.dart';
 import 'package:data/models/contest_session.dart';
+import 'package:data/models/num_multi_data.dart';
 import 'package:data/models/story_config.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:built_value/standard_json_plugin.dart';
@@ -23,7 +25,7 @@ void main() {
       Student s = standardSerializers.deserialize(json);
       expect(student, s);
     });
-    test('serialize and deserialize session', () {
+    test('serialize and deserialize ContestSession', () {
       final standardSerializers =
           (serializers.toBuilder()..addPlugin(StandardJsonPlugin())).build();
 
@@ -31,15 +33,31 @@ void main() {
         ..sessionId = '1'
         ..gameId = '2'
         ..level = 3
-        ..gameData.add(MultipleChoiceData((c) => c
+        ..gameData.add(MultiData((c) => c
+          ..gameId = '2'
           ..choices.addAll(['a', 'b', 'c'])
-          ..answer = 'd')));
+          ..answers.addAll(['d']))));
       final json = standardSerializers.serialize(session);
       final jsonString = jsonEncode(json);
       print(jsonString);
       final newJson = jsonDecode(jsonString);
       ContestSession s = standardSerializers.deserialize(newJson);
       expect(session, s);
+    });
+    test('serialize and deserialize NumMultiData', () {
+      final standardSerializers =
+          (serializers.toBuilder()..addPlugin(StandardJsonPlugin())).build();
+
+      NumMultiData data = NumMultiData((b) => b
+        ..gameId = '2'
+        ..choices.addAll([1, 2, 3])
+        ..answers.addAll([4]));
+      final json = standardSerializers.serialize(data);
+      final jsonString = jsonEncode(json);
+      print(jsonString);
+      final newJson = jsonDecode(jsonString);
+      NumMultiData s = standardSerializers.deserialize(newJson);
+      expect(data, s);
     });
     test('serialize and deserialize stories', () {
       final standardSerializers =
