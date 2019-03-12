@@ -10,6 +10,7 @@ export 'models/game_config.dart';
 export 'models/game_data.dart';
 export 'models/game_status.dart';
 export 'models/multiple_choice_data.dart';
+export 'models/performance.dart';
 export 'models/score.dart';
 export 'models/serializers.dart';
 export 'models/story_config.dart';

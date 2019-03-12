@@ -14,6 +14,7 @@ import 'package:data/models/game_status.dart';
 import 'package:data/models/multiple_choice_data.dart';
 import 'package:data/models/contest_session.dart';
 import 'package:data/models/contest_join.dart';
+import 'package:data/models/performance.dart';
 import 'package:data/models/score.dart';
 import 'package:data/models/story_config.dart';
 import 'package:data/models/student.dart';
@@ -34,6 +35,7 @@ part 'serializers.g.dart';
   GameStatus,
   MultipleChoiceData,
   Page,
+  Performance,
   Score,
   StoryConfig,
   Stories,
