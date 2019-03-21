@@ -105,5 +105,59 @@ void main() {
       Stories s = standardSerializers.deserialize(newJson);
       expect(stories, s);
     });
+    test('serialize and deserialize ChatQuestion', () {
+      final standardSerializers =
+          (serializers.toBuilder()..addPlugin(StandardJsonPlugin())).build();
+
+      ChatScript data = ChatScript((b) => b
+        ..choices.addAll({
+          'idli': ChatChoice((c) => c
+            ..choice = 'idli'
+            ..reply = 'Tasty'
+            ..questions.addAll(['b', 'c'])),
+          'dosa': ChatChoice((c) => c..choice = 'dosa'),
+          'nothing': ChatChoice((c) => c
+            ..choice = 'nothing'
+            ..reply = 'So sad!'
+            ..questions.addAll(['d'])),
+          'chutney': ChatChoice((c) => c
+            ..choice = 'chutney'
+            ..reply = 'Spicy!'),
+          'sambar': ChatChoice((c) => c..choice = 'sambar'),
+          'sugar': ChatChoice((c) => c
+            ..choice = 'sugar'
+            ..reply = 'Sweet!'),
+          'fluffy': ChatChoice((c) => c
+            ..choice = 'fluffy'
+            ..reply = 'Too good'),
+          'hard': ChatChoice((c) => c
+            ..choice = 'hard'
+            ..reply = 'So sad!'),
+        })
+        ..questions.addAll({
+          'a': ChatQuestion((q) => q
+            ..question = 'What did you eat?'
+            ..emotion = 'hungry'
+            ..choices.addAll(['idli', 'dosa', 'nothing'])),
+          'b': ChatQuestion((q) => q
+            ..question = 'What did you like with idli?'
+            ..emotion = 'yummy'
+            ..choices.addAll(['chutney', 'sambar', 'sugar'])),
+          'c': ChatQuestion((q) => q
+            ..question = 'How was the idli?'
+            ..emotion = 'curious'
+            ..choices.addAll(['fluffy', 'hard'])),
+          'd': ChatQuestion((q) => q
+            ..question = 'What do you want to eat?'
+            ..emotion = 'hungry'
+            ..choices.addAll(['idli', 'dosa', 'nothing']))
+        }));
+      final json = standardSerializers.serialize(data);
+      final jsonString = jsonEncode(json);
+      print(jsonString);
+      final newJson = jsonDecode(jsonString);
+      ChatScript s = standardSerializers.deserialize(newJson);
+      expect(data, s);
+    });
   });
 }

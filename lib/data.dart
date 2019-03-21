@@ -1,5 +1,6 @@
 library data;
 
+export 'models/chat_script.dart';
 export 'models/class_interest.dart';
 export 'models/class_join.dart';
 export 'models/class_session.dart';
