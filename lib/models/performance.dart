@@ -11,6 +11,7 @@ abstract class Performance implements Built<Performance, PerformanceBuilder> {
   String get question;
   String get answer;
   bool get correct;
+  int get score;
   DateTime get startTime;
   DateTime get endTime;
 

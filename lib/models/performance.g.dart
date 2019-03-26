@@ -38,6 +38,8 @@ class _$PerformanceSerializer implements StructuredSerializer<Performance> {
       'correct',
       serializers.serialize(object.correct,
           specifiedType: const FullType(bool)),
+      'score',
+      serializers.serialize(object.score, specifiedType: const FullType(int)),
       'startTime',
       serializers.serialize(object.startTime,
           specifiedType: const FullType(DateTime)),
@@ -88,6 +90,10 @@ class _$PerformanceSerializer implements StructuredSerializer<Performance> {
           result.correct = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
+        case 'score':
+          result.score = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          break;
         case 'startTime':
           result.startTime = serializers.deserialize(value,
               specifiedType: const FullType(DateTime)) as DateTime;
@@ -119,6 +125,8 @@ class _$Performance extends Performance {
   @override
   final bool correct;
   @override
+  final int score;
+  @override
   final DateTime startTime;
   @override
   final DateTime endTime;
@@ -134,6 +142,7 @@ class _$Performance extends Performance {
       this.question,
       this.answer,
       this.correct,
+      this.score,
       this.startTime,
       this.endTime})
       : super._() {
@@ -157,6 +166,9 @@ class _$Performance extends Performance {
     }
     if (correct == null) {
       throw new BuiltValueNullFieldError('Performance', 'correct');
+    }
+    if (score == null) {
+      throw new BuiltValueNullFieldError('Performance', 'score');
     }
     if (startTime == null) {
       throw new BuiltValueNullFieldError('Performance', 'startTime');
@@ -184,6 +196,7 @@ class _$Performance extends Performance {
         question == other.question &&
         answer == other.answer &&
         correct == other.correct &&
+        score == other.score &&
         startTime == other.startTime &&
         endTime == other.endTime;
   }
@@ -197,13 +210,15 @@ class _$Performance extends Performance {
                     $jc(
                         $jc(
                             $jc(
-                                $jc($jc(0, studentId.hashCode),
-                                    gameId.hashCode),
-                                sessionId.hashCode),
-                            level.hashCode),
-                        question.hashCode),
-                    answer.hashCode),
-                correct.hashCode),
+                                $jc(
+                                    $jc($jc(0, studentId.hashCode),
+                                        gameId.hashCode),
+                                    sessionId.hashCode),
+                                level.hashCode),
+                            question.hashCode),
+                        answer.hashCode),
+                    correct.hashCode),
+                score.hashCode),
             startTime.hashCode),
         endTime.hashCode));
   }
@@ -218,6 +233,7 @@ class _$Performance extends Performance {
           ..add('question', question)
           ..add('answer', answer)
           ..add('correct', correct)
+          ..add('score', score)
           ..add('startTime', startTime)
           ..add('endTime', endTime))
         .toString();
@@ -255,6 +271,10 @@ class PerformanceBuilder implements Builder<Performance, PerformanceBuilder> {
   bool get correct => _$this._correct;
   set correct(bool correct) => _$this._correct = correct;
 
+  int _score;
+  int get score => _$this._score;
+  set score(int score) => _$this._score = score;
+
   DateTime _startTime;
   DateTime get startTime => _$this._startTime;
   set startTime(DateTime startTime) => _$this._startTime = startTime;
@@ -274,6 +294,7 @@ class PerformanceBuilder implements Builder<Performance, PerformanceBuilder> {
       _question = _$v.question;
       _answer = _$v.answer;
       _correct = _$v.correct;
+      _score = _$v.score;
       _startTime = _$v.startTime;
       _endTime = _$v.endTime;
       _$v = null;
@@ -305,6 +326,7 @@ class PerformanceBuilder implements Builder<Performance, PerformanceBuilder> {
             question: question,
             answer: answer,
             correct: correct,
+            score: score,
             startTime: startTime,
             endTime: endTime);
     replace(_$result);
