@@ -14,9 +14,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(ClassJoin.serializer)
       ..add(ClassSession.serializer)
       ..add(ClassStudents.serializer)
-      ..add(ContestJoin.serializer)
-      ..add(ContestSession.serializer)
-      ..add(ContestStart.serializer)
       ..add(CrosswordData.serializer)
       ..add(GameConfig.serializer)
       ..add(GameStatus.serializer)
@@ -26,6 +23,9 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(NumMultiData.serializer)
       ..add(Page.serializer)
       ..add(Performance.serializer)
+      ..add(QuizJoin.serializer)
+      ..add(QuizSession.serializer)
+      ..add(QuizUpdate.serializer)
       ..add(Score.serializer)
       ..add(Stories.serializer)
       ..add(StoryConfig.serializer)
@@ -45,6 +45,9 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Page)]),
           () => new ListBuilder<Page>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(Performance)]),
+          () => new ListBuilder<Performance>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(StoryConfig)]),
           () => new ListBuilder<StoryConfig>())
