@@ -7,6 +7,9 @@ part 'quiz_update.g.dart';
 
 abstract class QuizUpdate implements Built<QuizUpdate, QuizUpdateBuilder> {
   String get sessionId;
+  StatusEnum get status;
+
+  @nullable
   BuiltList<Performance> get performances;
 
   QuizUpdate._();

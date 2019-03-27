@@ -46,11 +46,17 @@ class _$QuizUpdateSerializer implements StructuredSerializer<QuizUpdate> {
       'sessionId',
       serializers.serialize(object.sessionId,
           specifiedType: const FullType(String)),
-      'performances',
-      serializers.serialize(object.performances,
-          specifiedType:
-              const FullType(BuiltList, const [const FullType(Performance)])),
+      'status',
+      serializers.serialize(object.status,
+          specifiedType: const FullType(StatusEnum)),
     ];
+    if (object.performances != null) {
+      result
+        ..add('performances')
+        ..add(serializers.serialize(object.performances,
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(Performance)])));
+    }
 
     return result;
   }
@@ -69,6 +75,10 @@ class _$QuizUpdateSerializer implements StructuredSerializer<QuizUpdate> {
         case 'sessionId':
           result.sessionId = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
+          break;
+        case 'status':
+          result.status = serializers.deserialize(value,
+              specifiedType: const FullType(StatusEnum)) as StatusEnum;
           break;
         case 'performances':
           result.performances.replace(serializers.deserialize(value,
@@ -104,17 +114,19 @@ class _$QuizUpdate extends QuizUpdate {
   @override
   final String sessionId;
   @override
+  final StatusEnum status;
+  @override
   final BuiltList<Performance> performances;
 
   factory _$QuizUpdate([void updates(QuizUpdateBuilder b)]) =>
       (new QuizUpdateBuilder()..update(updates)).build();
 
-  _$QuizUpdate._({this.sessionId, this.performances}) : super._() {
+  _$QuizUpdate._({this.sessionId, this.status, this.performances}) : super._() {
     if (sessionId == null) {
       throw new BuiltValueNullFieldError('QuizUpdate', 'sessionId');
     }
-    if (performances == null) {
-      throw new BuiltValueNullFieldError('QuizUpdate', 'performances');
+    if (status == null) {
+      throw new BuiltValueNullFieldError('QuizUpdate', 'status');
     }
   }
 
@@ -130,18 +142,21 @@ class _$QuizUpdate extends QuizUpdate {
     if (identical(other, this)) return true;
     return other is QuizUpdate &&
         sessionId == other.sessionId &&
+        status == other.status &&
         performances == other.performances;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc(0, sessionId.hashCode), performances.hashCode));
+    return $jf($jc($jc($jc(0, sessionId.hashCode), status.hashCode),
+        performances.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('QuizUpdate')
           ..add('sessionId', sessionId)
+          ..add('status', status)
           ..add('performances', performances))
         .toString();
   }
@@ -154,6 +169,10 @@ class QuizUpdateBuilder implements Builder<QuizUpdate, QuizUpdateBuilder> {
   String get sessionId => _$this._sessionId;
   set sessionId(String sessionId) => _$this._sessionId = sessionId;
 
+  StatusEnum _status;
+  StatusEnum get status => _$this._status;
+  set status(StatusEnum status) => _$this._status = status;
+
   ListBuilder<Performance> _performances;
   ListBuilder<Performance> get performances =>
       _$this._performances ??= new ListBuilder<Performance>();
@@ -165,6 +184,7 @@ class QuizUpdateBuilder implements Builder<QuizUpdate, QuizUpdateBuilder> {
   QuizUpdateBuilder get _$this {
     if (_$v != null) {
       _sessionId = _$v.sessionId;
+      _status = _$v.status;
       _performances = _$v.performances?.toBuilder();
       _$v = null;
     }
@@ -190,12 +210,14 @@ class QuizUpdateBuilder implements Builder<QuizUpdate, QuizUpdateBuilder> {
     try {
       _$result = _$v ??
           new _$QuizUpdate._(
-              sessionId: sessionId, performances: performances.build());
+              sessionId: sessionId,
+              status: status,
+              performances: _performances?.build());
     } catch (_) {
       String _$failedField;
       try {
         _$failedField = 'performances';
-        performances.build();
+        _performances?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'QuizUpdate', _$failedField, e.toString());
