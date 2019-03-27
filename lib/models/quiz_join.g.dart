@@ -1,21 +1,21 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'contest_join.dart';
+part of 'quiz_join.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<ContestJoin> _$contestJoinSerializer = new _$ContestJoinSerializer();
+Serializer<QuizJoin> _$quizJoinSerializer = new _$QuizJoinSerializer();
 
-class _$ContestJoinSerializer implements StructuredSerializer<ContestJoin> {
+class _$QuizJoinSerializer implements StructuredSerializer<QuizJoin> {
   @override
-  final Iterable<Type> types = const [ContestJoin, _$ContestJoin];
+  final Iterable<Type> types = const [QuizJoin, _$QuizJoin];
   @override
-  final String wireName = 'ContestJoin';
+  final String wireName = 'QuizJoin';
 
   @override
-  Iterable serialize(Serializers serializers, ContestJoin object,
+  Iterable serialize(Serializers serializers, QuizJoin object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       'sessionId',
@@ -30,9 +30,9 @@ class _$ContestJoinSerializer implements StructuredSerializer<ContestJoin> {
   }
 
   @override
-  ContestJoin deserialize(Serializers serializers, Iterable serialized,
+  QuizJoin deserialize(Serializers serializers, Iterable serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new ContestJoinBuilder();
+    final result = new QuizJoinBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -55,35 +55,35 @@ class _$ContestJoinSerializer implements StructuredSerializer<ContestJoin> {
   }
 }
 
-class _$ContestJoin extends ContestJoin {
+class _$QuizJoin extends QuizJoin {
   @override
   final String sessionId;
   @override
   final String studentId;
 
-  factory _$ContestJoin([void updates(ContestJoinBuilder b)]) =>
-      (new ContestJoinBuilder()..update(updates)).build();
+  factory _$QuizJoin([void updates(QuizJoinBuilder b)]) =>
+      (new QuizJoinBuilder()..update(updates)).build();
 
-  _$ContestJoin._({this.sessionId, this.studentId}) : super._() {
+  _$QuizJoin._({this.sessionId, this.studentId}) : super._() {
     if (sessionId == null) {
-      throw new BuiltValueNullFieldError('ContestJoin', 'sessionId');
+      throw new BuiltValueNullFieldError('QuizJoin', 'sessionId');
     }
     if (studentId == null) {
-      throw new BuiltValueNullFieldError('ContestJoin', 'studentId');
+      throw new BuiltValueNullFieldError('QuizJoin', 'studentId');
     }
   }
 
   @override
-  ContestJoin rebuild(void updates(ContestJoinBuilder b)) =>
+  QuizJoin rebuild(void updates(QuizJoinBuilder b)) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ContestJoinBuilder toBuilder() => new ContestJoinBuilder()..replace(this);
+  QuizJoinBuilder toBuilder() => new QuizJoinBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is ContestJoin &&
+    return other is QuizJoin &&
         sessionId == other.sessionId &&
         studentId == other.studentId;
   }
@@ -95,15 +95,15 @@ class _$ContestJoin extends ContestJoin {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('ContestJoin')
+    return (newBuiltValueToStringHelper('QuizJoin')
           ..add('sessionId', sessionId)
           ..add('studentId', studentId))
         .toString();
   }
 }
 
-class ContestJoinBuilder implements Builder<ContestJoin, ContestJoinBuilder> {
-  _$ContestJoin _$v;
+class QuizJoinBuilder implements Builder<QuizJoin, QuizJoinBuilder> {
+  _$QuizJoin _$v;
 
   String _sessionId;
   String get sessionId => _$this._sessionId;
@@ -113,9 +113,9 @@ class ContestJoinBuilder implements Builder<ContestJoin, ContestJoinBuilder> {
   String get studentId => _$this._studentId;
   set studentId(String studentId) => _$this._studentId = studentId;
 
-  ContestJoinBuilder();
+  QuizJoinBuilder();
 
-  ContestJoinBuilder get _$this {
+  QuizJoinBuilder get _$this {
     if (_$v != null) {
       _sessionId = _$v.sessionId;
       _studentId = _$v.studentId;
@@ -125,22 +125,22 @@ class ContestJoinBuilder implements Builder<ContestJoin, ContestJoinBuilder> {
   }
 
   @override
-  void replace(ContestJoin other) {
+  void replace(QuizJoin other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$ContestJoin;
+    _$v = other as _$QuizJoin;
   }
 
   @override
-  void update(void updates(ContestJoinBuilder b)) {
+  void update(void updates(QuizJoinBuilder b)) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$ContestJoin build() {
+  _$QuizJoin build() {
     final _$result =
-        _$v ?? new _$ContestJoin._(sessionId: sessionId, studentId: studentId);
+        _$v ?? new _$QuizJoin._(sessionId: sessionId, studentId: studentId);
     replace(_$result);
     return _$result;
   }

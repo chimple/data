@@ -1,23 +1,21 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'contest_session.dart';
+part of 'quiz_session.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<ContestSession> _$contestSessionSerializer =
-    new _$ContestSessionSerializer();
+Serializer<QuizSession> _$quizSessionSerializer = new _$QuizSessionSerializer();
 
-class _$ContestSessionSerializer
-    implements StructuredSerializer<ContestSession> {
+class _$QuizSessionSerializer implements StructuredSerializer<QuizSession> {
   @override
-  final Iterable<Type> types = const [ContestSession, _$ContestSession];
+  final Iterable<Type> types = const [QuizSession, _$QuizSession];
   @override
-  final String wireName = 'ContestSession';
+  final String wireName = 'QuizSession';
 
   @override
-  Iterable serialize(Serializers serializers, ContestSession object,
+  Iterable serialize(Serializers serializers, QuizSession object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       'sessionId',
@@ -38,9 +36,9 @@ class _$ContestSessionSerializer
   }
 
   @override
-  ContestSession deserialize(Serializers serializers, Iterable serialized,
+  QuizSession deserialize(Serializers serializers, Iterable serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new ContestSessionBuilder();
+    final result = new QuizSessionBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -72,7 +70,7 @@ class _$ContestSessionSerializer
   }
 }
 
-class _$ContestSession extends ContestSession {
+class _$QuizSession extends QuizSession {
   @override
   final String sessionId;
   @override
@@ -82,37 +80,36 @@ class _$ContestSession extends ContestSession {
   @override
   final BuiltList<GameData> gameData;
 
-  factory _$ContestSession([void updates(ContestSessionBuilder b)]) =>
-      (new ContestSessionBuilder()..update(updates)).build();
+  factory _$QuizSession([void updates(QuizSessionBuilder b)]) =>
+      (new QuizSessionBuilder()..update(updates)).build();
 
-  _$ContestSession._({this.sessionId, this.gameId, this.level, this.gameData})
+  _$QuizSession._({this.sessionId, this.gameId, this.level, this.gameData})
       : super._() {
     if (sessionId == null) {
-      throw new BuiltValueNullFieldError('ContestSession', 'sessionId');
+      throw new BuiltValueNullFieldError('QuizSession', 'sessionId');
     }
     if (gameId == null) {
-      throw new BuiltValueNullFieldError('ContestSession', 'gameId');
+      throw new BuiltValueNullFieldError('QuizSession', 'gameId');
     }
     if (level == null) {
-      throw new BuiltValueNullFieldError('ContestSession', 'level');
+      throw new BuiltValueNullFieldError('QuizSession', 'level');
     }
     if (gameData == null) {
-      throw new BuiltValueNullFieldError('ContestSession', 'gameData');
+      throw new BuiltValueNullFieldError('QuizSession', 'gameData');
     }
   }
 
   @override
-  ContestSession rebuild(void updates(ContestSessionBuilder b)) =>
+  QuizSession rebuild(void updates(QuizSessionBuilder b)) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ContestSessionBuilder toBuilder() =>
-      new ContestSessionBuilder()..replace(this);
+  QuizSessionBuilder toBuilder() => new QuizSessionBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is ContestSession &&
+    return other is QuizSession &&
         sessionId == other.sessionId &&
         gameId == other.gameId &&
         level == other.level &&
@@ -128,7 +125,7 @@ class _$ContestSession extends ContestSession {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('ContestSession')
+    return (newBuiltValueToStringHelper('QuizSession')
           ..add('sessionId', sessionId)
           ..add('gameId', gameId)
           ..add('level', level)
@@ -137,9 +134,8 @@ class _$ContestSession extends ContestSession {
   }
 }
 
-class ContestSessionBuilder
-    implements Builder<ContestSession, ContestSessionBuilder> {
-  _$ContestSession _$v;
+class QuizSessionBuilder implements Builder<QuizSession, QuizSessionBuilder> {
+  _$QuizSession _$v;
 
   String _sessionId;
   String get sessionId => _$this._sessionId;
@@ -158,9 +154,9 @@ class ContestSessionBuilder
       _$this._gameData ??= new ListBuilder<GameData>();
   set gameData(ListBuilder<GameData> gameData) => _$this._gameData = gameData;
 
-  ContestSessionBuilder();
+  QuizSessionBuilder();
 
-  ContestSessionBuilder get _$this {
+  QuizSessionBuilder get _$this {
     if (_$v != null) {
       _sessionId = _$v.sessionId;
       _gameId = _$v.gameId;
@@ -172,24 +168,24 @@ class ContestSessionBuilder
   }
 
   @override
-  void replace(ContestSession other) {
+  void replace(QuizSession other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$ContestSession;
+    _$v = other as _$QuizSession;
   }
 
   @override
-  void update(void updates(ContestSessionBuilder b)) {
+  void update(void updates(QuizSessionBuilder b)) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$ContestSession build() {
-    _$ContestSession _$result;
+  _$QuizSession build() {
+    _$QuizSession _$result;
     try {
       _$result = _$v ??
-          new _$ContestSession._(
+          new _$QuizSession._(
               sessionId: sessionId,
               gameId: gameId,
               level: level,
@@ -201,7 +197,7 @@ class ContestSessionBuilder
         gameData.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'ContestSession', _$failedField, e.toString());
+            'QuizSession', _$failedField, e.toString());
       }
       rethrow;
     }

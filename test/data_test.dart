@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:data/models/multi_data.dart';
-import 'package:data/models/contest_session.dart';
+import 'package:data/models/quiz_session.dart';
 import 'package:data/models/num_multi_data.dart';
 import 'package:data/models/story_config.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -29,7 +29,7 @@ void main() {
       final standardSerializers =
           (serializers.toBuilder()..addPlugin(StandardJsonPlugin())).build();
 
-      ContestSession session = ContestSession((b) => b
+      QuizSession session = QuizSession((b) => b
         ..sessionId = '1'
         ..gameId = '2'
         ..level = 3
@@ -41,7 +41,7 @@ void main() {
       final jsonString = jsonEncode(json);
       print(jsonString);
       final newJson = jsonDecode(jsonString);
-      ContestSession s = standardSerializers.deserialize(newJson);
+      QuizSession s = standardSerializers.deserialize(newJson);
       expect(session, s);
     });
     test('serialize and deserialize NumMultiData', () {
