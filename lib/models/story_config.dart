@@ -20,12 +20,24 @@ abstract class Page implements Built<Page, PageBuilder> {
   String get imagePath;
   String get text;
   String get audioPath;
-
+  BuiltList<ImageItemDetails> get imageitemDetail;
   Page._();
   factory Page([updates(PageBuilder b)]) = _$Page;
   static Serializer<Page> get serializer => _$pageSerializer;
 }
 
+abstract class ImageItemDetails implements Built<ImageItemDetails, ImageItemDetailsBuilder> 
+{
+  String get itemName;
+  String get x;
+  String get y;
+  String get height;
+  String get width;
+  ImageItemDetails._();
+  factory ImageItemDetails([updates(ImageItemDetailsBuilder b)]) = _$ImageItemDetails;
+  static Serializer<ImageItemDetails> get serializer => _$imageItemDetailsSerializer;
+}
+ 
 abstract class Stories implements Built<Stories, StoriesBuilder> {
   BuiltList<StoryConfig> get stories;
 
