@@ -8,8 +8,8 @@ part of 'story_config.dart';
 
 Serializer<StoryConfig> _$storyConfigSerializer = new _$StoryConfigSerializer();
 Serializer<Page> _$pageSerializer = new _$PageSerializer();
-Serializer<ImageItemDetails> _$imageItemDetailsSerializer =
-    new _$ImageItemDetailsSerializer();
+Serializer<ImageItemDetail> _$imageItemDetailSerializer =
+    new _$ImageItemDetailSerializer();
 Serializer<Stories> _$storiesSerializer = new _$StoriesSerializer();
 
 class _$StoryConfigSerializer implements StructuredSerializer<StoryConfig> {
@@ -97,10 +97,10 @@ class _$PageSerializer implements StructuredSerializer<Page> {
       'audioPath',
       serializers.serialize(object.audioPath,
           specifiedType: const FullType(String)),
-      'imageitemDetail',
-      serializers.serialize(object.imageitemDetail,
+      'imageitemDetails',
+      serializers.serialize(object.imageitemDetails,
           specifiedType: const FullType(
-              BuiltList, const [const FullType(ImageItemDetails)])),
+              BuiltList, const [const FullType(ImageItemDetail)])),
     ];
 
     return result;
@@ -133,10 +133,10 @@ class _$PageSerializer implements StructuredSerializer<Page> {
           result.audioPath = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'imageitemDetail':
-          result.imageitemDetail.replace(serializers.deserialize(value,
+        case 'imageitemDetails':
+          result.imageitemDetails.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
-                      BuiltList, const [const FullType(ImageItemDetails)]))
+                      BuiltList, const [const FullType(ImageItemDetail)]))
               as BuiltList);
           break;
       }
@@ -146,15 +146,15 @@ class _$PageSerializer implements StructuredSerializer<Page> {
   }
 }
 
-class _$ImageItemDetailsSerializer
-    implements StructuredSerializer<ImageItemDetails> {
+class _$ImageItemDetailSerializer
+    implements StructuredSerializer<ImageItemDetail> {
   @override
-  final Iterable<Type> types = const [ImageItemDetails, _$ImageItemDetails];
+  final Iterable<Type> types = const [ImageItemDetail, _$ImageItemDetail];
   @override
-  final String wireName = 'ImageItemDetails';
+  final String wireName = 'ImageItemDetail';
 
   @override
-  Iterable serialize(Serializers serializers, ImageItemDetails object,
+  Iterable serialize(Serializers serializers, ImageItemDetail object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       'itemName',
@@ -176,9 +176,9 @@ class _$ImageItemDetailsSerializer
   }
 
   @override
-  ImageItemDetails deserialize(Serializers serializers, Iterable serialized,
+  ImageItemDetail deserialize(Serializers serializers, Iterable serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new ImageItemDetailsBuilder();
+    final result = new ImageItemDetailBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -403,7 +403,7 @@ class _$Page extends Page {
   @override
   final String audioPath;
   @override
-  final BuiltList<ImageItemDetails> imageitemDetail;
+  final BuiltList<ImageItemDetail> imageitemDetails;
 
   factory _$Page([void updates(PageBuilder b)]) =>
       (new PageBuilder()..update(updates)).build();
@@ -413,7 +413,7 @@ class _$Page extends Page {
       this.imagePath,
       this.text,
       this.audioPath,
-      this.imageitemDetail})
+      this.imageitemDetails})
       : super._() {
     if (pageNumber == null) {
       throw new BuiltValueNullFieldError('Page', 'pageNumber');
@@ -427,8 +427,8 @@ class _$Page extends Page {
     if (audioPath == null) {
       throw new BuiltValueNullFieldError('Page', 'audioPath');
     }
-    if (imageitemDetail == null) {
-      throw new BuiltValueNullFieldError('Page', 'imageitemDetail');
+    if (imageitemDetails == null) {
+      throw new BuiltValueNullFieldError('Page', 'imageitemDetails');
     }
   }
 
@@ -447,7 +447,7 @@ class _$Page extends Page {
         imagePath == other.imagePath &&
         text == other.text &&
         audioPath == other.audioPath &&
-        imageitemDetail == other.imageitemDetail;
+        imageitemDetails == other.imageitemDetails;
   }
 
   @override
@@ -457,7 +457,7 @@ class _$Page extends Page {
             $jc($jc($jc(0, pageNumber.hashCode), imagePath.hashCode),
                 text.hashCode),
             audioPath.hashCode),
-        imageitemDetail.hashCode));
+        imageitemDetails.hashCode));
   }
 
   @override
@@ -467,7 +467,7 @@ class _$Page extends Page {
           ..add('imagePath', imagePath)
           ..add('text', text)
           ..add('audioPath', audioPath)
-          ..add('imageitemDetail', imageitemDetail))
+          ..add('imageitemDetails', imageitemDetails))
         .toString();
   }
 }
@@ -491,11 +491,11 @@ class PageBuilder implements Builder<Page, PageBuilder> {
   String get audioPath => _$this._audioPath;
   set audioPath(String audioPath) => _$this._audioPath = audioPath;
 
-  ListBuilder<ImageItemDetails> _imageitemDetail;
-  ListBuilder<ImageItemDetails> get imageitemDetail =>
-      _$this._imageitemDetail ??= new ListBuilder<ImageItemDetails>();
-  set imageitemDetail(ListBuilder<ImageItemDetails> imageitemDetail) =>
-      _$this._imageitemDetail = imageitemDetail;
+  ListBuilder<ImageItemDetail> _imageitemDetails;
+  ListBuilder<ImageItemDetail> get imageitemDetails =>
+      _$this._imageitemDetails ??= new ListBuilder<ImageItemDetail>();
+  set imageitemDetails(ListBuilder<ImageItemDetail> imageitemDetails) =>
+      _$this._imageitemDetails = imageitemDetails;
 
   PageBuilder();
 
@@ -505,7 +505,7 @@ class PageBuilder implements Builder<Page, PageBuilder> {
       _imagePath = _$v.imagePath;
       _text = _$v.text;
       _audioPath = _$v.audioPath;
-      _imageitemDetail = _$v.imageitemDetail?.toBuilder();
+      _imageitemDetails = _$v.imageitemDetails?.toBuilder();
       _$v = null;
     }
     return this;
@@ -534,12 +534,12 @@ class PageBuilder implements Builder<Page, PageBuilder> {
               imagePath: imagePath,
               text: text,
               audioPath: audioPath,
-              imageitemDetail: imageitemDetail.build());
+              imageitemDetails: imageitemDetails.build());
     } catch (_) {
       String _$failedField;
       try {
-        _$failedField = 'imageitemDetail';
-        imageitemDetail.build();
+        _$failedField = 'imageitemDetails';
+        imageitemDetails.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'Page', _$failedField, e.toString());
@@ -551,7 +551,7 @@ class PageBuilder implements Builder<Page, PageBuilder> {
   }
 }
 
-class _$ImageItemDetails extends ImageItemDetails {
+class _$ImageItemDetail extends ImageItemDetail {
   @override
   final String itemName;
   @override
@@ -563,40 +563,40 @@ class _$ImageItemDetails extends ImageItemDetails {
   @override
   final String width;
 
-  factory _$ImageItemDetails([void updates(ImageItemDetailsBuilder b)]) =>
-      (new ImageItemDetailsBuilder()..update(updates)).build();
+  factory _$ImageItemDetail([void updates(ImageItemDetailBuilder b)]) =>
+      (new ImageItemDetailBuilder()..update(updates)).build();
 
-  _$ImageItemDetails._({this.itemName, this.x, this.y, this.height, this.width})
+  _$ImageItemDetail._({this.itemName, this.x, this.y, this.height, this.width})
       : super._() {
     if (itemName == null) {
-      throw new BuiltValueNullFieldError('ImageItemDetails', 'itemName');
+      throw new BuiltValueNullFieldError('ImageItemDetail', 'itemName');
     }
     if (x == null) {
-      throw new BuiltValueNullFieldError('ImageItemDetails', 'x');
+      throw new BuiltValueNullFieldError('ImageItemDetail', 'x');
     }
     if (y == null) {
-      throw new BuiltValueNullFieldError('ImageItemDetails', 'y');
+      throw new BuiltValueNullFieldError('ImageItemDetail', 'y');
     }
     if (height == null) {
-      throw new BuiltValueNullFieldError('ImageItemDetails', 'height');
+      throw new BuiltValueNullFieldError('ImageItemDetail', 'height');
     }
     if (width == null) {
-      throw new BuiltValueNullFieldError('ImageItemDetails', 'width');
+      throw new BuiltValueNullFieldError('ImageItemDetail', 'width');
     }
   }
 
   @override
-  ImageItemDetails rebuild(void updates(ImageItemDetailsBuilder b)) =>
+  ImageItemDetail rebuild(void updates(ImageItemDetailBuilder b)) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ImageItemDetailsBuilder toBuilder() =>
-      new ImageItemDetailsBuilder()..replace(this);
+  ImageItemDetailBuilder toBuilder() =>
+      new ImageItemDetailBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is ImageItemDetails &&
+    return other is ImageItemDetail &&
         itemName == other.itemName &&
         x == other.x &&
         y == other.y &&
@@ -614,7 +614,7 @@ class _$ImageItemDetails extends ImageItemDetails {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('ImageItemDetails')
+    return (newBuiltValueToStringHelper('ImageItemDetail')
           ..add('itemName', itemName)
           ..add('x', x)
           ..add('y', y)
@@ -624,9 +624,9 @@ class _$ImageItemDetails extends ImageItemDetails {
   }
 }
 
-class ImageItemDetailsBuilder
-    implements Builder<ImageItemDetails, ImageItemDetailsBuilder> {
-  _$ImageItemDetails _$v;
+class ImageItemDetailBuilder
+    implements Builder<ImageItemDetail, ImageItemDetailBuilder> {
+  _$ImageItemDetail _$v;
 
   String _itemName;
   String get itemName => _$this._itemName;
@@ -648,9 +648,9 @@ class ImageItemDetailsBuilder
   String get width => _$this._width;
   set width(String width) => _$this._width = width;
 
-  ImageItemDetailsBuilder();
+  ImageItemDetailBuilder();
 
-  ImageItemDetailsBuilder get _$this {
+  ImageItemDetailBuilder get _$this {
     if (_$v != null) {
       _itemName = _$v.itemName;
       _x = _$v.x;
@@ -663,22 +663,22 @@ class ImageItemDetailsBuilder
   }
 
   @override
-  void replace(ImageItemDetails other) {
+  void replace(ImageItemDetail other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$ImageItemDetails;
+    _$v = other as _$ImageItemDetail;
   }
 
   @override
-  void update(void updates(ImageItemDetailsBuilder b)) {
+  void update(void updates(ImageItemDetailBuilder b)) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$ImageItemDetails build() {
+  _$ImageItemDetail build() {
     final _$result = _$v ??
-        new _$ImageItemDetails._(
+        new _$ImageItemDetail._(
             itemName: itemName, x: x, y: y, height: height, width: width);
     replace(_$result);
     return _$result;
