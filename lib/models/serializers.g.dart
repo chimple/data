@@ -18,6 +18,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GameConfig.serializer)
       ..add(GameStatus.serializer)
       ..add(ImageData.serializer)
+      ..add(ImageItemDetail.serializer)
       ..add(MathOpData.serializer)
       ..add(MultiData.serializer)
       ..add(NumMultiData.serializer)
@@ -43,6 +44,9 @@ Serializers _$serializers = (new Serializers().toBuilder()
             const FullType(BuiltList, const [const FullType(String)])
           ]),
           () => new ListBuilder<BuiltList<String>>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(ImageItemDetail)]),
+          () => new ListBuilder<ImageItemDetail>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Page)]),
           () => new ListBuilder<Page>())
